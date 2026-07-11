@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>account — ripdiddy</title>
+<title>dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <meta name="robots" content="noindex, nofollow">
@@ -360,16 +360,6 @@
   unlockBtn.addEventListener('click', unlock);
   keyInput.addEventListener('keydown', (e)=>{ if (e.key === 'Enter') unlock(); });
 
-  function showDashboard(){
-    gate.style.display = 'none';
-    dashboard.style.display = 'block';
-    loadExisting();
-  }
-
-  if (sessionStorage.getItem('rd_auth') === '1'){
-    showDashboard();
-  }
-
   // --- Dashboard logic ---
   let draft = {};
 
@@ -393,6 +383,17 @@
       });
     }
   }
+
+  function showDashboard(){
+    gate.style.display = 'none';
+    dashboard.style.display = 'block';
+    loadExisting();
+  }
+
+  if (sessionStorage.getItem('rd_auth') === '1'){
+    showDashboard();
+  }
+
 
   document.getElementById('avatarInput').addEventListener('change', (e)=>{
     const file = e.target.files[0];
